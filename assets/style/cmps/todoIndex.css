@@ -1,0 +1,35 @@
+.todo-index {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.todos-container,
+.todos-list {
+    list-style: none;
+}
+
+.todos-container {
+    columns: 12rem auto;
+    height: fit-content;
+    padding: 2rem;
+
+
+
+
+}
+.todos-container>*{
+    break-inside: avoid;
+}
+.todo>*{
+    break-inside: avoid;
+}
+
+.todo {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+
+}

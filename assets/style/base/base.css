@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    margin: 0;
+  
+  }
+
+  
+
+  
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+  
+  
+  
+  /* Dont stretch my Media */
+  img,
+  embed,
+  video,
+  object {
+    max-width: 100%
+  }
+  
+ 

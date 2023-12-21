@@ -1,0 +1,8 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 1rem;
+    /* flex-wrap: wrap; */
+ 
+}
