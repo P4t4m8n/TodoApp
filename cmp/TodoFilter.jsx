@@ -1,10 +1,10 @@
 
 
-export function TodoFilter({ handleChange, onSetFilterSort,filterTitle }) {
+export function TodoFilter({ handleChange,filterTitle }) {
     return (
         <section className="todo-filter">
             <h2>ToDo filter</h2>
-            <form onSubmit={(onSetFilterSort)}>
+            <form >
                 <label htmlFor="title">Title </label>
                 <input value={filterTitle} onChange={handleChange} type="text" id="title" name="title" />
                 <button>Submit</button>

@@ -1,3 +1,4 @@
+import { todoService } from "../services/todo.service.js"
 
 const { createStore } = Redux
 
@@ -6,12 +7,19 @@ export const ADD_TODO = 'ADD_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const EDIT_TODO = 'EDIT_TODO'
 
+export const FILTER = 'FILTER'
+
+
+
 const initialState = {
-    todos: []
+    todos: [],
+    isLoading: false,
+    currentFilterBy: todoService.getDefaultFilter(),
+    userObject: {}
 }
 
 function todoReducer(state = initialState, action = {}) {
-    // console.log("action:", action)
+
     let todos
     switch (action.type) {
 
@@ -31,6 +39,12 @@ function todoReducer(state = initialState, action = {}) {
         case EDIT_TODO:
             todos = state.todos.map(todo => todo._id === action.todo._id ? action.todo : todo)
             return { ...state, todos }
+
+        //Filter
+
+        case FILTER:
+            let currentFilterBy = { ...state.currentFilterBy, ...action.tempObj }
+            return { ...state, currentFilterBy }
 
         default:
             return state
