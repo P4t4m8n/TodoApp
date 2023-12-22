@@ -31,7 +31,6 @@ export function TodoLogin({ onSetUser }) {
     function signup(credentials) {
         userService.signup(credentials)
             .then(user => {
-                console.log("user:", user)
 
                 onSetUser(user)
             })

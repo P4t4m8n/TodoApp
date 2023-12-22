@@ -9,6 +9,7 @@ import { AppHeader } from './cmp/AppHeader.jsx'
 import { TodoEdit } from './cmp/TodoEdit.jsx'
 import { TodoSideBar } from './pages/TodoSideBar.jsx'
 import { store } from './store/store.js'
+import { UserProfile } from './pages/UserProfile.jsx'
 
 export function App() {
 
@@ -25,6 +26,8 @@ export function App() {
                             <Route path="/todo/:userId/:todoId" element={<TodoDetails />} />
                             <Route path="/todo/:userId/edit/:todoId" element={<TodoEdit />} />
                             <Route path="/todo/:userId/edit" element={<TodoEdit />} />
+                            <Route path="/user/:userId" element={<UserProfile />} />
+
                         </Routes>
                     </main>
                 </div>

@@ -10,6 +10,7 @@ export const EDIT_TODO = 'EDIT_TODO'
 
 export const SET_USER = 'SET_USER'
 export const SET_USER_COMPLETE = 'SET_USER_COMPLETE'
+export const EDIT_USER = 'EDIT_USER'
 
 
 export const FILTER = 'FILTER'
@@ -60,16 +61,11 @@ function todoReducer(state = initialState, action = {}) {
             return { ...state, userObj: action.user }
 
         case SET_USER_COMPLETE:
-
-            console.log("action:", action)
             const user = { ...state.userObj, todosComplete: action.todosComplete }
-            console.log("user:", user)
             return { ...state, userObj: user }
 
-        // case ADD_USER_ACTIVITY:
-        //     activites = [...state.userObj.activites, action.activty]
-        //     user = { ...state.userObj, activites }
-        //     return { ...state, user }
+        case EDIT_USER:
+            return { ...state, userObj: action.user }
 
 
         default:

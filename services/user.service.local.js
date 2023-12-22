@@ -7,6 +7,8 @@ export const userService = {
     getLoggedinUser,
     getEmptyCredentials,
     addActivity,
+    update,
+    getActivityTimes,
 }
 
 
@@ -26,11 +28,17 @@ function login({ username, password }) {
         })
 }
 
-function signup({ username, password, fullname, activites, todosComplete }) {
-    const user = { username, password, fullname, activites, todosComplete }
-    return storageService.post(KEY, user)
-        .then(_setLoggedinUser)
+function signup(credentials) {
+    return _saveUser(credentials)
+    // const user = { ...credentials }
+    // return storageService.post(KEY, user)
+    //     .then(_setLoggedinUser)
 }
+
+function update(user) {
+    return _saveUser(user)
+}
+
 
 function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
@@ -68,3 +76,33 @@ function addActivity(txt) {
 
 }
 
+function getActivityTimes(activites) {
+    const currentDate = new Date()
+    return activites.map(activity => {
+        let pastDate = new Date(activity.at)
+        let timeDifference = currentDate - pastDate
+        let timeStr = ''
+        let seconds = Math.floor(timeDifference / 1000)
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
+
+        if (days) timeStr = days + ' Days ago'
+        else if (hours) {
+            if (hours > 2) timeStr = hours + ' Hours ago'
+            else
+                timeStr = 'Couple of hours'
+        }
+        else if (minutes) timeStr = minutes + ' Minutes ago'
+        else timeStr = seconds + ' Seconds ago'
+
+        return { txt: activity.txt, timeStr }
+    })
+}
+
+function _saveUser(user) {
+    const tempUser = { ...user }
+    const method = tempUser._id ? 'put' : 'post'
+    return storageService[method](KEY, user)
+        .then(_setLoggedinUser)
+}

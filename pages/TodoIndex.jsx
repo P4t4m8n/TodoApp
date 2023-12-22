@@ -20,7 +20,6 @@ export function TodoIndex() {
         todoService.query(currentFilterBy, user._id)
             .then(todos => {
                 let todosComplete = todoService.getDoneTodoPercentage(todos)
-                console.log("todosComplete:", todosComplete)
                 dispatch({ type: SET_USER_COMPLETE, todosComplete })
                 dispatch({ type: SET_TODOS, todos })
             })
@@ -40,7 +39,6 @@ export function TodoIndex() {
             .then(
                 todoService.remove(todoId)
                     .then(() => {
-                        dispatch({ type: REMOVE_TODO, todoId })
                         dispatch({ type: REMOVE_TODO, todoId })
                         console.log('Removed!')
                     })

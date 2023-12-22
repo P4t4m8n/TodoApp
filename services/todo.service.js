@@ -18,15 +18,12 @@ export const todoService = {
 }
 
 function query(filterBy, userId) {
-    console.log("userId:", userId)
 
     const { title, sort, list } = filterBy
     return storageService.query(TODOS_KEY)
         .then(todos => {
-            console.log("todos:", todos)
             todos = todos.filter(todo => todo.owner === userId)
 
-            console.log("todos:", todos)
             if (title) {
                 const regex = new RegExp(title, 'i')
                 todos = todos.filter(todo => regex.test(todo.title))
@@ -91,13 +88,11 @@ function getDefaultFilter() {
 }
 
 function getDoneTodoPercentage(todos) {
-    console.log("todos:", todos)
     var length = todos.length
     var doneTodos = todos.reduce((sum, todo) => {
         if (todo.isDone || !todo.isActive) sum + 1
     })
     var res = 0
-    console.log("res:", res)
     if (!doneTodos) doneTodos = 1
     if (length) res = doneTodos / length
     return res
