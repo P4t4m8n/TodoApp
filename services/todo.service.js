@@ -15,9 +15,21 @@ export const todoService = {
 
 }
 
-function query() {
+function query(filterBy) {
+    const { title, sort } = filterBy
     return storageService.query(TODOS_KEY)
         .then(todos => {
+            if (title) {
+                const regex = new RegExp(title, 'i')
+                todos = todos.filter(todo => regex.test(todo.title))
+            }
+            if (sort === 'length') {
+                console.log(todos)
+                todos.sort((todoA, todoB) => todoA.todosList.length - todoB.todosList.length)
+            }
+            else {
+                todos.sort((todoA, todoB) => todoA.title.localeCompare(todoB.title))
+            }
 
             return todos
         })
@@ -64,10 +76,10 @@ function _createTodos() {
     if (!todos || !todos.length) {
 
         const todos = [
-            { _id: utilService.makeId(), title: 'a', todosList: ['Task 1', 'Task 2', 'Task 3'] },
+            { _id: utilService.makeId(), title: 'z', todosList: ['Task 1', 'Task 2', 'Task 3'] },
             { _id: utilService.makeId(), title: 'b', todosList: ['Task A', 'Task B'] },
             { _id: utilService.makeId(), title: 'c', todosList: ['Complete project', 'Review code'] },
-            { _id: utilService.makeId(), title: 'd', todosList: ['Read a book', 'Go for a walk'] },
+            { _id: utilService.makeId(), title: 'k', todosList: ['Read a book', 'Go for a walk'] },
             { _id: utilService.makeId(), title: 'e', todosList: ['Prepare presentation', 'Attend meeting'] },
             { _id: utilService.makeId(), title: 'f', todosList: ['Write blog post', 'Research topic'] },
             { _id: utilService.makeId(), title: 'g', todosList: ['Exercise', 'Plan the week'] },

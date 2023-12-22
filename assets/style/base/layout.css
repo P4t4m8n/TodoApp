@@ -4,5 +4,13 @@
     align-content: center;
     gap: 1rem;
     /* flex-wrap: wrap; */
- 
+    position: relative;
+
+}
+
+.main-page {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
 }

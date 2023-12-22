@@ -11,10 +11,10 @@ export function TodoIndex() {
     const [filterSortBy, setFilterSortBy] = useState(todoService.getDefaultFilter())
 
     useEffect(() => {
-        todoService.query()
+        todoService.query(filterSortBy)
             .then(todos => setTodos(todos))
             .catch(err => console.log('err:', err))
-    }, [])
+    }, [filterSortBy])
 
     function onSetFilterSort(ev) {
         console.log("ev:", ev)
@@ -22,8 +22,6 @@ export function TodoIndex() {
     }
 
     function handleChange({ target }) {
-        console.log("target:", target.value)
-        console.log("target:", target.name)
         const value = target.value
         if (target.name === 'sortBy') {
             setFilterSortBy((prevFilter) => ({ ...prevFilter, sort: value }))

@@ -2,4 +2,5 @@
 @import './base/layout.css';
 
 @import './cmps/appHeader.css';
-@import './cmps/todoIndex.css'
+@import './cmps/todoIndex.css';
+@import './cmps/todoSideBar.css';
