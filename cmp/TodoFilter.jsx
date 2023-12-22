@@ -10,8 +10,8 @@ export function TodoFilter({ handleChange, onSetFilterSort,filterTitle }) {
                 <button>Submit</button>
             </form>
 
-            <label htmlFor="sortBy">Sort By:</label>
-            <select name="sortBy" id="sortBy" onChange={handleChange} defaultValue={'name'}>
+            <label htmlFor="sort">Sort By:</label>
+            <select name="sort" id="sort" onChange={handleChange} defaultValue={'name'}>
                 <option value={'name'}>Name</option>
                 <option value={'length'}>Length</option>
             </select>

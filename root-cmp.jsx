@@ -8,6 +8,7 @@ import { TodoDetails } from './pages/TodoDetails.jsx'
 import { AppHeader } from './cmp/AppHeader.jsx'
 import { TodoEdit } from './cmp/TodoEdit.jsx'
 import { TodoSideBar } from './pages/TodoSideBar.jsx'
+import {store} from './store/store.js'
 
 export function App() {
 
