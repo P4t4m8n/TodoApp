@@ -3,8 +3,8 @@ const { Fragment } = React
 
 export function TodoPreview({ todo }) {
 
-    
-   const todosList = todo.todosList.slice(0, 3)
+
+    const todosList = todo.todosList.slice(0, 3)
 
     return (
         <Fragment>
@@ -15,6 +15,8 @@ export function TodoPreview({ todo }) {
                         key={idx}>{todoList}
                     </li>
                 )}
+                {todo.isActive && <div className="todo-active">Active</div>}
+                {todo.isDone && <div className="todo-active">Done</div>}
             </ul>
         </Fragment>
     )

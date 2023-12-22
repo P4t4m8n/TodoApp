@@ -1,9 +1,10 @@
 import { todoService } from "../services/todo.service.js"
+import { userService } from "../services/user.service.local.js"
 import { ADD_TODO, EDIT_TODO } from "../store/store.js"
 
 const { useNavigate, useParams } = ReactRouterDOM
 const { useState, useEffect } = React
-const { useSelector, useDispatch } = ReactRedux
+const { useDispatch } = ReactRedux
 
 
 export function TodoEdit() {
@@ -40,23 +41,34 @@ export function TodoEdit() {
 
     function addInnerTodo(ev) {
         ev.preventDefault()
+        userService.addActivity('add inner line in todo id: ' + params.todoId)
         setTodoToEdit((prevTodo) => ({ ...prevTodo, todosList: todosList.toSpliced(todosList.length, 1, 'Im a new Todo') }))
     }
 
     function removeInnerTodo({ target }) {
         let idx = target.name
+        userService.addActivity('removed inner line in num' + idx + ' todo id: ' + params.todoId)
         setTodoToEdit((prevTodo) => ({ ...prevTodo, todosList: todosList.toSpliced(idx, 1) }))
+    }
+
+    function onSetIsDone() {
+        setTodoToEdit((prevTodo) => ({ ...prevTodo, isDone: !todoToEdit.isDone }))
+    }
+
+    function onSetIsActive() {
+        setTodoToEdit((prevTodo) => ({ ...prevTodo, isActive: !todoToEdit.isActive }))
     }
 
     function onSaveTodo(ev) {
         ev.preventDefault()
         const type = (todoToEdit._id) ? EDIT_TODO : ADD_TODO
-
+        const activity = (type === EDIT_TODO) ? 'edit todo id: ' + todoToEdit._id : 'add todo'
+        userService.addActivity(activity)
         todoService.save(todoToEdit)
             .then((savedTodo) => {
                 dispatch({ type: type, todo: savedTodo })
                 console.log('Saved')
-                navigate('/todo')
+                navigate('/todo/' + params.todoId)
             })
             .catch((err) => {
                 console.log('err:', err)
@@ -86,6 +98,8 @@ export function TodoEdit() {
                 </ul >
                 <button>Save</button>
                 <button onClick={addInnerTodo}>Add Todo</button>
+                <button onClick={onSetIsDone}>Mark as done</button>
+                <button onClick={onSetIsActive}>Mark as non Active</button>
             </form>
         </section>
     )

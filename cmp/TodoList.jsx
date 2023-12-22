@@ -2,7 +2,7 @@ import { TodoPreview } from "./TodoPreview.jsx";
 const { Link } = ReactRouterDOM
 
 
-export function TodoList({ todos, onRemoveTodo }) {
+export function TodoList({ todos, onRemoveTodo, userId }) {
 
 
     return (
@@ -12,8 +12,8 @@ export function TodoList({ todos, onRemoveTodo }) {
                     <TodoPreview todo={todo}></TodoPreview>
                     <section className="todo-btns">
                         <button onClick={() => onRemoveTodo(todo._id)}>Remove</button>
-                        <button><Link to={`/todo/${todo._id}`}>Details</Link></button>
-                        <button><Link to={`/todo/edit/${todo._id}`}>Edit</Link></button>
+                        <button><Link to={`/todo/${userId}/${todo._id}`}>Details</Link></button>
+                        <button><Link to={`/todo/${userId}/edit/${todo._id}`}>Edit</Link></button>
                     </section>
                 </li>)}
         </ul>

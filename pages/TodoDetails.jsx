@@ -15,14 +15,14 @@ export function TodoDetails() {
                 setTodo(todo))
             .catch(err => {
                 console.log('err:', err)
-                navigate('/todo')
+                navigate('/todo/' + params.userId)
             })
-    })
+    },[])
 
     if (!todo) return <div>Loading...</div>
 
     function onBack() {
-        navigate('/todo')
+        navigate('/todo/' + params.userId)
 
     }
 
