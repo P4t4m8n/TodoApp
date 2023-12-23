@@ -10,14 +10,14 @@ export function TodoDetails() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        todoService.get(params.todoId)
+        todoService.get(params.todoId, params.userId)
             .then(todo =>
                 setTodo(todo))
             .catch(err => {
                 console.log('err:', err)
                 navigate('/todo/' + params.userId)
             })
-    },[])
+    }, [])
 
     if (!todo) return <div>Loading...</div>
 

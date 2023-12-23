@@ -44,15 +44,17 @@ function query(filterAndSort) {
 }
 
 function save(todo, loggedinUser) {
+    // console.log("todo:", todo)
     if (todo._id) {
         const idx = gTodos.findIndex(currtodo => currtodo._id === todo._id)
         if (idx === -1) return Promise.reject('No such todo')
 
-        if (gTodos[idx].creator._id !== loggedinUser._id && !loggedinUser.isAdmin) {
-            return Promise.reject('Not authorized update this car')
+        if (gTodos[idx].owner !== loggedinUser._id && !loggedinUser.isAdmin) {
+            return Promise.reject('Not authorized update this todo')
         }
 
         gTodos[idx] = todo
+        // console.log("  gTodos[idx:",   gTodos[idx])
     } else {
         todo._id = _makeId()
         gTodos.push(todo)
@@ -68,10 +70,8 @@ function getById(todoId) {
 
 function remove(todoId, loggedinUser) {
     const idx = gTodos.findIndex(todo => todo._id === todoId)
-
     if (idx === -1) return Promise.reject('No such todo')
-
-    if (gTodos[idx].creator._id !== loggedinUser._id && !loggedinUser.isAdmin) {
+    if (gTodos[idx].owner !== loggedinUser._id && !loggedinUser.isAdmin) {
         return Promise.reject('Not authorized delete this todo')
     }
 
@@ -98,7 +98,7 @@ function _makeId(length = 5) {
 }
 
 function _savetodosToFile() {
-    console.log('gtodos:', gTodos)
+    // console.log('gtodos:', gTodos)
     return new Promise((resolve, reject) => {
         fs.writeFile('data/todo.json', JSON.stringify(gTodos, null, 2), (err) => {
             if (err) {

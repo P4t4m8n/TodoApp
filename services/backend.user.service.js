@@ -2,8 +2,10 @@ import fs from 'fs'
 import Cryptr from 'cryptr'
 
 import { backendUtilService } from './backend.util.service.js'
-let users = backendUtilService.readJsonFile('data/user.json')
-const cryptr = new Cryptr(process.env.SECRET1 || 'secret-puk-1234')
+
+let users = backendUtilService.readJsonFile('data/users.json')
+
+const cryptr = new Cryptr('the-day-the-music-day-9020010')
 
 export const backendUserService = {
   query,
@@ -25,50 +27,42 @@ function getLoginToken(user) {
 }
 
 function validateToken(loginToken) {
-  try {
-    const json = cryptr.decrypt(loginToken)
-    const loggedinUser = JSON.parse(json)
-    return loggedinUser
-  } catch (err) {
-    console.log('Invalid login token')
-  }
-  return null
+  const json = cryptr.decrypt(loginToken)
+  const loggedinUser = JSON.parse(json)
+  return loggedinUser
 }
 
 function checkLogin({ username, password }) {
-  let user = users.find(user => user.username === username)
+  // console.log("password:", users[1].password === password)
+  // console.log("username:", users[1].username === username)
 
-  if (user) {
-    user = {
-      _id: user._id,
-      fullname: user.fullname,
-      isAdmin: user.isAdmin,
-    }
-  }
-
+  let user = users.find(user => {
+    return (user.username === username &&
+    	user.password === password)
+    })
+  
   return Promise.resolve(user)
 }
 
-function save(user) {
-  users.push(user)
-  return _saveUsersToFile().then(() => user)
+function save(updatedUser) {
+  const idx = users.findIndex(user => user._id === updatedUser._id)
+  users.splice(idx, 1, updatedUser)
+  return _saveUsersToFile().then(() => updatedUser)
 }
 
-function signup({ fullname, username, password }) {
+function signup({ fullname, username, password, activites, todosComplete }) {
   let user = {
     _id: _makeId(),
     fullname,
     username,
     password,
+    todosComplete,
+    activites
   }
 
   users.push(user)
 
-  return _saveUsersToFile().then(() => {
-    user = { ...user }
-    delete user.password
-    return user
-  })
+  return _saveUsersToFile().then(() => user)
 }
 
 function remove(userId) {

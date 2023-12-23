@@ -1,5 +1,5 @@
 import { todoService } from "../services/todo.service.js"
-import { userService } from "../services/user.service.local.js"
+import { userService } from "../services/user.service.js"
 
 const { createStore } = Redux
 

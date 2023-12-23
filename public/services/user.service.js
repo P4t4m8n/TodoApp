@@ -1,5 +1,4 @@
-import axios from 'axios'
-import { storageService } from './async-storage.service.js'
+
 
 export const userService = {
     login,
@@ -22,8 +21,7 @@ function getLoggedinUser() {
 }
 
 function login({ username, password }) {
-    return axios
-        .post('api/login', { username, password })
+    return axios.post('api/login', { username, password })
         .then(res => res.data)
         .then(user => {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))
@@ -35,8 +33,7 @@ function login({ username, password }) {
 }
 
 function signup(credentials) {
-    return axios
-        .post('/api/signup', credentials)
+    return axios.post('/api/signup', credentials)
         .then(res => res.data)
         .then(user => {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))

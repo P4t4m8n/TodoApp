@@ -1,0 +1,83 @@
+[
+  {
+    "username": "Admin1",
+    "password": "Admin1",
+    "fullname": "Admin1",
+    "activites": [
+      "1",
+      "2"
+    ],
+    "todosComplete": 1
+  },
+  {
+    "_id": "beBeI",
+    "username": "Admin",
+    "password": "Admin",
+    "fullname": "Admin",
+    "activites": [
+      "a",
+      "b",
+      {
+        "txt": "Logged in",
+        "at": 1703345683363
+      },
+      {
+        "txt": "removed todo id: 13",
+        "at": 1703345825651
+      },
+      {
+        "txt": "removed todo id: 13",
+        "at": 1703345937171
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346694613
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346695712
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346696313
+      },
+      {
+        "txt": "add todo",
+        "at": 1703346697236
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346813401
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346814606
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346815306
+      },
+      {
+        "txt": "add todo",
+        "at": 1703346815966
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346834519
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346835314
+      },
+      {
+        "txt": "add inner line in todo id: undefined",
+        "at": 1703346835957
+      },
+      {
+        "txt": "add todo",
+        "at": 1703346836771
+      }
+    ],
+    "todosComplete": 0
+  }
+]

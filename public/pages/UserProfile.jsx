@@ -1,4 +1,4 @@
-import { userService } from "../services/user.service.local.js"
+import { userService } from "../services/user.service.js"
 import { EDIT_USER } from "../store/store.js"
 
 const { useSelector, useDispatch } = ReactRedux

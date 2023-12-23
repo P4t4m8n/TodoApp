@@ -1,5 +1,5 @@
 import { todoService } from "../services/todo.service.js"
-import { userService } from "../services/user.service.local.js"
+import { userService } from "../services/user.service.js"
 import { ADD_TODO, EDIT_TODO } from "../store/store.js"
 
 const { useNavigate, useParams } = ReactRouterDOM
@@ -64,7 +64,7 @@ export function TodoEdit() {
         const type = (todoToEdit._id) ? EDIT_TODO : ADD_TODO
         const activity = (type === EDIT_TODO) ? 'edit todo id: ' + todoToEdit._id : 'add todo'
         userService.addActivity(activity)
-        todoService.save(todoToEdit)
+        todoService.save(todoToEdit,params.userId)
             .then((savedTodo) => {
                 dispatch({ type: type, todo: savedTodo })
                 console.log('Saved')

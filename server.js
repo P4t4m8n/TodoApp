@@ -4,6 +4,7 @@ import path from 'path'
 
 import { backendTodoService } from './services/backend.todo.service.js'
 import { backendLoggerService } from './services/backend.logger.service.js'
+import { backendUserService } from './services/backend.user.service.js'
 
 const app = express()
 
@@ -12,8 +13,17 @@ app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json())
 
-// List
+// TODOS
+
+// list
 app.get('/api/todo/:userId', (req, res) => {
+    // const { loginToken } = req.cookies
+    // const loggedinUser = backendUserService.validateToken(loginToken)
+    // if (!loggedinUser) {
+    //     backendLoggerService.error('Cannot delete todo', err)
+    //     return res.status(401).send('Cannot delete todo')
+    // }
+
     const { title = '', sort = 'name', list = 'all' } = req.query
     const { userId = '' } = req.params
 
@@ -31,8 +41,16 @@ app.get('/api/todo/:userId', (req, res) => {
         })
 })
 
-// Read
+// read
 app.get('/api/todo/:userId/:todoId', (req, res) => {
+
+    // const { loginToken } = req.cookies
+    // const loggedinUser = backendUserService.validateToken(loginToken)
+    // if (!loggedinUser) {
+    //     backendLoggerService.error('Cannot delete todo', err)
+    //     return res.status(401).send('Cannot delete todo')
+    // }
+
     const { todoId } = req.params
 
     backendTodoService.getById(todoId)
@@ -45,12 +63,16 @@ app.get('/api/todo/:userId/:todoId', (req, res) => {
         })
 })
 
-// Delete
+// delete
 app.delete('/api/todo/:userId/:todoId', (req, res) => {
-    const { loginToken } = req.cookies
-    const loggedinUser = userService.validateToken(loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot delete todo')
+    // const { loginToken } = req.cookies
+    // const loggedinUser = backendUserService.validateToken(loginToken)
+    // if (!loggedinUser) {
+    //     backendLoggerService.error('Cannot delete todo', err)
+    //     return res.status(401).send('Cannot delete todo')
+    // }
 
+    const loggedinUser = { _id: req.params.userId }
     const { todoId } = req.params
 
     backendTodoService
@@ -62,39 +84,68 @@ app.delete('/api/todo/:userId/:todoId', (req, res) => {
         })
 })
 
-// Create
-app.post('/api/todo', (req, res) => {
-    const { loginToken } = req.cookies
-    const loggedinUser = userService.validateToken(loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot add todo')
+// create
+app.post('/api/todo/:userId/edit', (req, res) => {
+    console.log("req:", req.body)
+    // const { loginToken } = req.cookies
+    // const loggedinUser = userService.validateToken(loginToken)
+    // if (!loggedinUser) {
+    //     backendLoggerService.error('Cannot add todo')
+    //     return res.status(401).send('Cannot add todo')
+    // }
 
-    const todo = req.body
-    delete loggedinUser.username
-    todo.creator = loggedinUser
+    const loggedinUser = { _id: req.params.userId }
+    const todo = {
+        title: req.body.title || '',
+        todosList: req.body.todosList || [],
+        isActive: req.body.isActive || true,
+        isDone: req.body.isDone || false,
+        owner: req.params.userId
+    }
+    // delete loggedinUser.username
+    // todo.creator = loggedinUser
 
-    backendTodoService.save(todo)
+    backendTodoService.save(todo, loggedinUser)
         .then((addedtodo) => {
             res.send(addedtodo)
         })
+        .catch((err) => {
+            backendLoggerService.error('unable to save', err)
+        })
 })
 
-// Update
-app.put('/api/todo', (req, res) => {
-    const { loginToken } = req.cookies
-    const loggedinUser = userService.validateToken(loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot update todo')
+// update
+app.put('/api/todo/:userId/edit/:todoId', (req, res) => {
+    // const { loginToken } = req.cookies
+    // const loggedinUser = userService.validateToken(loginToken)
+    // if (!loggedinUser) {
+    //     backendLoggerService.error('Cannot update todo')
+    //     return res.status(401).send('Cannot update todo')
+    // }
 
-    const todo = req.body
+    const loggedinUser = { _id: req.params.userId }
+    const todo = {
+        _id: req.params.todoId,
+        title: req.body.title || '',
+        todosList: req.body.todosList || [],
+        isActive: req.body.isActive,
+        isDone: req.body.isDone,
+        owner: req.params.userId
+    }
+
     backendTodoService.save(todo, loggedinUser)
         .then(savedtodo => {
             res.send(savedtodo)
         })
         .catch((err) => {
-            console.log('Had issues:', err)
+            backendLoggerService.error('unable to save', err)
         })
 })
 
 // USER
+
+//get users (admin only noy fun atm)
+
 app.get('/api/user', (req, res) => {
     userService
         .query()
@@ -102,10 +153,11 @@ app.get('/api/user', (req, res) => {
         .catch((err) => res.status(500).send('Cannot get todos'))
 })
 
+// user profile
 app.get('/api/user/:userId', (req, res) => {
     const { userId } = req.params
 
-    userService
+    backendUserService
         .getById(userId)
         .then((user) => res.send(user))
         .catch((err) => {
@@ -114,9 +166,10 @@ app.get('/api/user/:userId', (req, res) => {
         })
 })
 
+//update user
 app.put('/api/user/:userId', (req, res) => {
     const userToUpdate = {
-        _id: req.body._id,
+        _id: req.params.userId,
         username: req.body.username,
         password: req.body.password,
         fullname: req.body.fullname,
@@ -130,6 +183,9 @@ app.put('/api/user/:userId', (req, res) => {
             res.status(400).send('failure')
         })
 })
+
+
+//delete user (admin only noy fun atm)
 
 app.delete('/api/user/:userId', (req, res) => {
     const { userId } = req.params
@@ -146,20 +202,19 @@ app.delete('/api/user/:userId', (req, res) => {
 
 // Autherize
 app.post('/api/login', (req, res) => {
-    console.log('req.body', req.body)
     const credentials = {
         username: req.body.username,
         password: req.body.password,
     }
-    // const credentials = req.body
-    userService.checkLogin(credentials)
+
+    backendUserService.checkLogin(credentials)
         .then((user) => {
             if (user) {
-                const loginToken = userService.getLoginToken(user)
+                const loginToken = backendUserService.getLoginToken(user)
                 res.cookie('loginToken', loginToken)
-
                 res.send(user)
             } else {
+                backendLoggerService.error('Invalid credentials', err)
                 res.status(401).send('Invalid credentials')
             }
         })
@@ -167,15 +222,23 @@ app.post('/api/login', (req, res) => {
 })
 
 app.post('/api/logout', (req, res) => {
+    console.log('logout')
     res.clearCookie('loginToken')
     res.send('Logged out')
 })
 
 app.post('/api/signup', (req, res) => {
-    const credentials = req.body
+    const credentials = {
+        username: req.body.username,
+        password: req.body.password,
+        fullname: req.body.fullname,
+        activites: req.body.activites,
+        todosComplete: req.body.todosComplete
 
-    userService.save(credentials).then((user) => {
-        const loginToken = userService.getLoginToken(user)
+    }
+
+    backendUserService.signup(credentials).then((user) => {
+        const loginToken = backendUserService.getLoginToken(user)
         res.cookie('loginToken', loginToken)
         res.send(user)
     })
