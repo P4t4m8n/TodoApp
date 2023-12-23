@@ -21,7 +21,7 @@ function query(filterAndSort) {
 
     if (title) {
         const regex = new RegExp(title, 'i')
-        todos = todos.filter(todo => regex.test(todo.title))
+        todos = todos.filter(todo => regex.test(todo.txt))
     }
 
     if (list === 'active') {
@@ -37,7 +37,7 @@ function query(filterAndSort) {
     }
 
     else {
-        todos.sort((todoA, todoB) => todoA.title.localeCompare(todoB.title))
+        todos.sort((todoA, todoB) => todoA.txt.localeCompare(todoB.txt))
     }
 
     return Promise.resolve(todos)
