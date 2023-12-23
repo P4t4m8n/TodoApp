@@ -136,6 +136,10 @@
       {
         "txt": "Logged in",
         "at": 1703348865535
+      },
+      {
+        "txt": "Logged out",
+        "at": 1703352989218
       }
     ],
     "todosComplete": 0
