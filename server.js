@@ -249,8 +249,8 @@ app.get('/**', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
 })
 
-const port = 3031
+const PORT = process.env.PORT || 3031
 
-app.listen(port, () => {
-    console.log(`Server is ready at ${port} http://127.0.0.1:${port}/`)
+app.listen(PORT, () => {
+    console.log(`Server is ready at ${PORT} http://127.0.0.1:${PORT}/`)
 })
