@@ -39,17 +39,6 @@ export function TodoEdit() {
 
     }
 
-    function addInnerTodo(ev) {
-        ev.preventDefault()
-        userService.addActivity('add inner line in todo id: ' + params.todoId)
-        setTodoToEdit((prevTodo) => ({ ...prevTodo, todosList: todosList.toSpliced(todosList.length, 1, 'Im a new Todo') }))
-    }
-
-    function removeInnerTodo({ target }) {
-        let idx = target.name
-        userService.addActivity('removed inner line in num' + idx + ' todo id: ' + params.todoId)
-        setTodoToEdit((prevTodo) => ({ ...prevTodo, todosList: todosList.toSpliced(idx, 1) }))
-    }
 
     function onSetIsDone() {
         setTodoToEdit((prevTodo) => ({ ...prevTodo, isDone: !todoToEdit.isDone }))
@@ -64,7 +53,7 @@ export function TodoEdit() {
         const type = (todoToEdit._id) ? EDIT_TODO : ADD_TODO
         const activity = (type === EDIT_TODO) ? 'edit todo id: ' + todoToEdit._id : 'add todo'
         userService.addActivity(activity)
-        todoService.save(todoToEdit,params.userId)
+        todoService.save(todoToEdit, params.userId)
             .then((savedTodo) => {
                 dispatch({ type: type, todo: savedTodo })
                 console.log('Saved')
@@ -79,28 +68,17 @@ export function TodoEdit() {
     const { title, todosList } = todoToEdit
 
     return (
-        <section className="editTodo">
+        <section className="edit-todo">
 
-            <form onSubmit={onSaveTodo}>
+            <form >
                 <label htmlFor="title">Todo Title: </label>
                 <input value={title} onChange={handleChange} type="text" id="title" name="title"></input>
-                <ul className="todo-edit-list">
-                    {
-                        todosList.map((todo, idx) =>
-                            <li key={idx}>
-                                <label htmlFor={idx}>Todo {idx + 1}: </label>
-                                <input value={todo} onChange={handleChange}
-                                    type="text" id={idx} name={idx}></input>
-                                <button onClick={removeInnerTodo}>Remove</button>
-
-                            </li>)
-                    }
-                </ul >
-                <button>Save</button>
+            </form><div className="edit-todo-btns">
+                <button onSubmit={onSaveTodo}>Save</button>
                 <button onClick={addInnerTodo}>Add Todo</button>
                 <button onClick={onSetIsDone}>Mark as done</button>
                 <button onClick={onSetIsActive}>Mark as non Active</button>
-            </form>
+            </div>
         </section>
     )
 

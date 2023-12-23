@@ -21,12 +21,16 @@
 }
 
 .todos-container>* {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 0.2rem solid;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
 }
 
-.todo>* {
-    break-inside: avoid;
-}
 
 .todo {
     margin: 3rem;
@@ -40,7 +44,7 @@
     justify-content: space-between;
     align-items: center;
 
-}
+} */
 
 .todos-list {
     display: flex;

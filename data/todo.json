@@ -1,450 +1,247 @@
 [
   {
-    "_id": "12",
-    "title": "y",
-    "todosList": [
-      "Create user interface",
-      "Implement backend"
-    ],
+    "_id": "1",
+    "txt": "Finish coding project",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "Admin"
+  },
+  {
+    "_id": "2",
+    "txt": "Read a book",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "3",
+    "txt": "Exercise for 30 minutes",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "4",
+    "txt": "Cook a healthy meal",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "5",
+    "txt": "Learn a new language",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "6",
+    "txt": "Complete online course",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "7",
+    "txt": "Plan weekend getaway",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "8",
+    "txt": "Practice mindfulness",
+    "isActive": true,
+    "isDone": false,
+    "owner": "susanClark"
+  },
+  {
+    "_id": "9",
+    "txt": "Write a blog post",
+    "isActive": true,
+    "isDone": false,
+    "owner": "Admin"
+  },
+  {
+    "_id": "10",
+    "txt": "Attend networking event",
+    "isActive": true,
+    "isDone": false,
+    "owner": "oliviaJones"
+  },
+  {
+    "_id": "11",
+    "txt": "Solve a puzzle",
+    "isActive": true,
+    "isDone": false,
+    "owner": "richardMoore"
+  },
+  {
+    "_id": "12",
+    "txt": "Create a budget",
+    "isActive": true,
+    "isDone": false,
+    "owner": "natalieAdams"
+  },
+  {
+    "_id": "13",
+    "txt": "Explore new music",
+    "isActive": true,
+    "isDone": false,
+    "owner": "williamHill"
   },
   {
     "_id": "14",
-    "title": "m",
-    "todosList": [
-      "Plan vacation",
-      "Book flights"
-    ],
+    "txt": "Learn to dance",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "emmaMartin"
   },
   {
     "_id": "15",
-    "title": "n",
-    "todosList": [
-      "Explore new technologies",
-      "Attend conference"
-    ],
+    "txt": "Build a website",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "michaelBrown"
   },
   {
     "_id": "16",
-    "title": "o",
-    "todosList": [
-      "Write research paper",
-      "Submit paper"
-    ],
+    "txt": "Start a journal",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "sophiaJohnson"
   },
   {
     "_id": "17",
-    "title": "p",
-    "todosList": [
-      "Study for exams",
-      "Join study group"
-    ],
+    "txt": "Volunteer for a cause",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "danielSmith"
   },
   {
     "_id": "18",
-    "title": "q",
-    "todosList": [
-      "Create project plan",
-      "Set milestones"
-    ],
+    "txt": "Take a photography class",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "oliverWilson"
   },
   {
     "_id": "19",
-    "title": "r",
-    "todosList": [
-      "Write job application",
-      "Prepare for interview"
-    ],
+    "txt": "Go for a hike",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "ameliaTaylor"
   },
   {
     "_id": "20",
-    "title": "s",
-    "todosList": [
-      "Learn a new language",
-      "Practice speaking"
-    ],
+    "txt": "Learn to play an instrument",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "ethanClark"
   },
   {
     "_id": "21",
-    "title": "t",
-    "todosList": [
-      "Attend networking event",
-      "Build professional connections"
-    ],
+    "txt": "Visit a museum",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "avaMoore"
   },
   {
     "_id": "22",
-    "title": "u",
-    "todosList": [
-      "Organize family gathering",
-      "Buy gifts"
-    ],
+    "txt": "Improve coding skills",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "loganAdams"
   },
   {
     "_id": "23",
-    "title": "v",
-    "todosList": [
-      "Start a fitness routine",
-      "Set fitness goals"
-    ],
+    "txt": "Organize workspace",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "isabellaHill"
   },
   {
     "_id": "24",
-    "title": "w",
-    "todosList": [
-      "Create budget",
-      "Save money"
-    ],
+    "txt": "Learn to cook a new dish",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "aidenMartin"
   },
   {
     "_id": "25",
-    "title": "l",
-    "todosList": [
-      "Write a short story",
-      "Submit to magazine"
-    ],
+    "txt": "Read a motivational book",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "miaBrown"
   },
   {
     "_id": "26",
-    "title": "d",
-    "todosList": [
-      "Plan weekend getaway",
-      "Book accommodation"
-    ],
+    "txt": "Practice meditation",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "liamWilson"
   },
   {
     "_id": "27",
-    "title": "g",
-    "todosList": [
-      "Learn to play a musical instrument",
-      "Practice daily"
-    ],
+    "txt": "Take a dance class",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "avaJones"
   },
   {
     "_id": "28",
-    "title": "h",
-    "todosList": [
-      "Cook a new recipe",
-      "Host dinner party"
-    ],
+    "txt": "Learn to play chess",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "lucasWhite"
   },
   {
     "_id": "29",
-    "title": "i",
-    "todosList": [
-      "Take online course",
-      "Earn certification"
-    ],
+    "txt": "Travel to a new city",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "zoeyMiller"
   },
   {
     "_id": "30",
-    "title": "j",
-    "todosList": [
-      "Volunteer at local charity",
-      "Make a positive impact"
-    ],
+    "txt": "Write a short story",
     "isActive": true,
     "isDone": false,
-    "owner": "beBeI"
+    "owner": "noahAdams"
   },
   {
     "_id": "31",
-    "title": "k",
-    "todosList": [
-      "Plant a garden",
-      "Grow vegetables"
-    ],
+    "txt": "Learn a magic trick",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "oliviaTaylor"
   },
   {
     "_id": "32",
-    "title": "x",
-    "todosList": [
-      "Read science fiction novel",
-      "Join book club"
-    ],
+    "txt": "Explore a new hobby",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "ethanMoore"
   },
   {
     "_id": "33",
-    "title": "y",
-    "todosList": [
-      "Learn to meditate",
-      "Practice mindfulness"
-    ],
+    "txt": "Take a cooking class",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "emmaClark"
   },
   {
     "_id": "34",
-    "title": "a",
-    "todosList": [
-      "Explore photography",
-      "Take creative photos"
-    ],
+    "txt": "Join a book club",
     "isActive": true,
-    "isDone": false
+    "isDone": false,
+    "owner": "jacobHill"
   },
   {
     "_id": "35",
-    "title": "b",
-    "todosList": [
-      "Visit art gallery",
-      "Appreciate artwork"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "36",
-    "title": "c",
-    "todosList": [
-      "Learn to code",
-      "Build a simple app"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "37",
-    "title": "d",
-    "todosList": [
-      "Travel to a new city",
-      "Explore local culture"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "38",
-    "title": "e",
-    "todosList": [
-      "Attend live concert",
-      "Discover new music"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "39",
-    "title": "f",
-    "todosList": [
-      "Write a gratitude journal",
-      "Reflect on positivity"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "40",
-    "title": "g",
-    "todosList": [
-      "Take up a sport",
-      "Stay active"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "41",
-    "title": "h",
-    "todosList": [
-      "Learn to play chess",
-      "Challenge friends"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "42",
-    "title": "i",
-    "todosList": [
-      "Create a blog",
-      "Share thoughts and experiences"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "43",
-    "title": "j",
-    "todosList": [
-      "Attend workshop",
-      "Enhance skills"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "44",
-    "title": "k",
-    "todosList": [
-      "Take up a new hobby",
-      "Enjoy leisure time"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "45",
-    "title": "l",
-    "todosList": [
-      "Plan home improvement",
-      "Renovate living space"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "46",
-    "title": "m",
-    "todosList": [
-      "Learn to play an instrument",
-      "Join a band"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "47",
-    "title": "n",
-    "todosList": [
-      "Explore nature trails",
-      "Hike in the mountains"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "48",
-    "title": "o",
-    "todosList": [
-      "Visit historical sites",
-      "Learn about the past"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "49",
-    "title": "p",
-    "todosList": [
-      "Take up a dance class",
-      "Attend dance performances",
-      "Learn to cook a new cuisine",
-      "Host themed dinner",
-      "blabla"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "_id": "50",
-    "title": "q",
-    "todosList": [
-      "Learn to cook a new cuisine",
-      "Host themed dinner",
-      "blabla"
-    ],
-    "isActive": true,
-    "isDone": false
-  },
-  {
-    "title": "",
-    "todosList": [],
+    "txt": "Learn to play guitar",
     "isActive": true,
     "isDone": false,
-    "owner": "lcBoI",
-    "_id": "brLzV"
-  },
-  {
-    "title": "",
-    "todosList": [],
-    "isActive": true,
-    "isDone": false,
-    "owner": "lcBoI",
-    "_id": "p5Ygz"
-  },
-  {
-    "title": "",
-    "todosList": [],
-    "isActive": true,
-    "isDone": false,
-    "owner": "lcBoI",
-    "_id": "VdeWC"
-  },
-  {
-    "_id": "s0cR2",
-    "title": "eeeee",
-    "todosList": [
-      "ee",
-      "e",
-      "eee"
-    ],
-    "isActive": false,
-    "isDone": true,
-    "owner": "lcBoI"
-  },
-  {
-    "title": "aaa",
-    "todosList": [
-      "Im a new Todo",
-      "Im a new Todo",
-      "Im a new Todo"
-    ],
-    "isActive": true,
-    "isDone": false,
-    "owner": "beBeI",
-    "_id": "OiELK"
+    "owner": "miaMoore"
   }
 ]

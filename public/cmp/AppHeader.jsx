@@ -16,8 +16,11 @@ export function AppHeader() {
 
     function onLogout() {
         userService.addActivity('Logged out')
+            .then(() =>
+                userService.logout())
             .then(() => {
                 onSetUser(null)
+                navigate('/')
             })
             .catch((err) => {
             })
