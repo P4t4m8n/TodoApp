@@ -1,0 +1,23 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon --ignore \"./data\" server.js"
+  },
+  "author": "P4t4m8n",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cookie-parser": "^1.4.6",
+    "cryptr": "^6.3.0",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "fs-js": "^1.0.6",
+    "nodemon": "^3.0.2"
+  }
+}

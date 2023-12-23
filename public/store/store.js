@@ -16,8 +16,6 @@ export const EDIT_USER = 'EDIT_USER'
 export const FILTER = 'FILTER'
 
 
-
-
 const initialState = {
     todos: [],
     isLoading: false,
@@ -28,8 +26,6 @@ const initialState = {
 function todoReducer(state = initialState, action = {}) {
 
     let todos
-    let user
-    let activites
     switch (action.type) {
 
         //todo
