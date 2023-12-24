@@ -15,7 +15,8 @@
   },
   {
     "_id": "3",
-    "txt": "Exercise for 30 minutes",
+    "txt": "Exercise for 30 aaa",
+    "todosList": [],
     "isActive": true,
     "isDone": false,
     "owner": "Admin"
@@ -23,13 +24,6 @@
   {
     "_id": "5",
     "txt": "Learn a new language",
-    "isActive": true,
-    "isDone": false,
-    "owner": "Admin"
-  },
-  {
-    "_id": "6",
-    "txt": "Complete online course",
     "isActive": true,
     "isDone": false,
     "owner": "Admin"

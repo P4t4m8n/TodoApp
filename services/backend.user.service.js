@@ -5,7 +5,7 @@ import { backendUtilService } from './backend.util.service.js'
 
 let users = backendUtilService.readJsonFile('data/users.json')
 
-const cryptr = new Cryptr(process.env.SERCRET || 'the-day-the-music-day-9020010')
+const cryptr = new Cryptr(process.env.SERCRET || 'the-day-9020010')
 
 export const backendUserService = {
   query,
@@ -33,14 +33,10 @@ function validateToken(loginToken) {
 }
 
 function checkLogin({ username, password }) {
-  // console.log("password:", users[1].password === password)
-  // console.log("username:", users[1].username === username)
-
   let user = users.find(user => {
     return (user.username === username &&
       user.password === password)
   })
-
   return Promise.resolve(user)
 }
 

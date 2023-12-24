@@ -13,7 +13,6 @@ export const todoService = {
 const BASE_URL = '/api/todo/'
 
 function query(filterBy, userId) {
-
     const filterAndSort = { ...filterBy, userId }
     return axios.get(BASE_URL + userId, { params: filterAndSort })
         .then(res => res.data)
@@ -54,7 +53,7 @@ function save(todo,userId) {
 function getEmptytodo() {
     return {
         id: '',
-        txt: '',
+        txt: 'Enter todo',
         isActive: true,
         isDone: false,
         owner: '',
@@ -63,7 +62,7 @@ function getEmptytodo() {
 
 function getDefaultFilter() {
     return {
-        title: '', sort: 'name', list: 'all',
+        txt: '', sort: 'name', list: 'all',
     }
 }
 

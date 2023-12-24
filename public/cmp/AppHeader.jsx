@@ -1,35 +1,25 @@
-import { userService } from "../services/user.service.js"
-import { SET_USER } from "../store/store.js"
+import { logout } from "../store/actions/user.actions.js"
 import { TodoLogin } from "./TodoLogin.jsx"
 
 const { Link, NavLink } = ReactRouterDOM
-const { useState } = React
 const { useNavigate } = ReactRouter
 const { useSelector, useDispatch } = ReactRedux
 
 
 export function AppHeader() {
 
-    const user = useSelector(storeState => storeState.userObj)
+    const user = useSelector(storeState => storeState.userMoudle.userObj)
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     function onLogout() {
-        // userService.addActivity('Logged out')
-        //     .then(() =>
-        userService.logout()
+        logout()
             .then(() => {
+                console.log('Logout')
                 navigate('/')
-                onSetUser(null)
             })
             .catch((err) => {
+                console.log("err:", err)
             })
-    }
-
-    function onSetUser(user) {
-        dispatch({ type: SET_USER, user })
-        userService.addActivity('Logged in')
-        navigate('/')
     }
 
     return (
@@ -49,7 +39,7 @@ export function AppHeader() {
                 </section>
             ) : (
                 <section>
-                    <TodoLogin onSetUser={onSetUser}></TodoLogin>
+                    <TodoLogin ></TodoLogin>
                 </section>
             )}
         </section>

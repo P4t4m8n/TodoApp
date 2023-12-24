@@ -24,11 +24,11 @@ app.get('/api/todo/:userId', (req, res) => {
     //     return res.status(401).send('Cannot delete todo')
     // }
 
-    const { title = '', sort = 'name', list = 'all' } = req.query
+    const { txt = '', sort = 'name', list = 'all' } = req.query
     const { userId = '' } = req.params
 
     const filterAndSort = {
-        title,
+        txt,
         sort,
         list,
         userId,
@@ -96,7 +96,7 @@ app.post('/api/todo/:userId/edit', (req, res) => {
 
     const loggedinUser = { _id: req.params.userId }
     const todo = {
-        title: req.body.title || '',
+        txt: req.body.txt || '',
         todosList: req.body.todosList || [],
         isActive: req.body.isActive || true,
         isDone: req.body.isDone || false,
@@ -126,7 +126,7 @@ app.put('/api/todo/:userId/edit/:todoId', (req, res) => {
     const loggedinUser = { _id: req.params.userId }
     const todo = {
         _id: req.params.todoId,
-        title: req.body.title || '',
+        txt: req.body.txt || '',
         todosList: req.body.todosList || [],
         isActive: req.body.isActive,
         isDone: req.body.isDone,
@@ -206,9 +206,9 @@ app.post('/api/login', (req, res) => {
         username: req.body.username,
         password: req.body.password,
     }
-
+    
     backendUserService.checkLogin(credentials)
-        .then((user) => {
+    .then((user) => {
             if (user) {
                 const loginToken = backendUserService.getLoginToken(user)
                 res.cookie('loginToken', loginToken)
@@ -221,12 +221,7 @@ app.post('/api/login', (req, res) => {
         .catch((err) => res.status(401).send(err))
 })
 
-// app.post('/todo/api/logout', (req, res) => {
-//     console.log('logout')
-//     res.clearCookie('loginToken')
-//     res.send('Logged out')
-// }
-// )
+
 app.post('/api/logout', (req, res) => {
     console.log('logout')
     res.clearCookie('loginToken')

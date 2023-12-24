@@ -21,14 +21,13 @@ function getLoggedinUser() {
 }
 
 function login({ username, password }) {
-    return axios.post('api/login', { username, password })
+    return axios.post('/api/login', { username, password })
         .then(res => res.data)
         .then(user => {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))
+             userService.addActivity('Login ')
             return user
-            // const user = users.find(user => user.username === username && user.password === password)
-            // if (user) return _setLoggedinUser(user)
-            // else return Promise.reject('Invalid login')
+
         })
 }
 
@@ -37,6 +36,7 @@ function signup(credentials) {
         .then(res => res.data)
         .then(user => {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))
+            userService.addActivity('SignedUp')
             return user
         })
 }
@@ -47,13 +47,19 @@ function update(credentials) {
         .then(res => res.data)
         .then(user => {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(user))
-            return user
+             userService.addActivity('Update User ')
+             return user
         })
 }
 
 function logout() {
-    sessionStorage.removeItem(STORAGE_KEY)
-    return axios.post('/api/logout')
+    return userService.addActivity('Logout')
+        .then(() => {
+            sessionStorage.removeItem(STORAGE_KEY)
+            return axios.post('/api/logout ')
+
+        })
+
 }
 
 function remove(userId) {
@@ -82,6 +88,7 @@ function getEmptyCredentials() {
 }
 
 function addActivity(txt) {
+
     var user = userService.getLoggedinUser()
     user.activites.push({ txt, at: Date.now() })
     return axios.put('/api/user/' + user._id, user)
@@ -94,6 +101,7 @@ function addActivity(txt) {
 }
 
 function getActivityTimes(activites) {
+    console.log("activites:", activites)
     const currentDate = new Date()
     return activites.map(activity => {
         let pastDate = new Date(activity.at)

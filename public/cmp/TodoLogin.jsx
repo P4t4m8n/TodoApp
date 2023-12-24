@@ -1,48 +1,50 @@
 import { userService } from "../services/user.service.js"
+import { login, signup } from "../store/actions/user.actions.js"
 
 const { useState } = React
+const { useNavigate } = ReactRouter
 
-export function TodoLogin({ onSetUser }) {
+export function TodoLogin() {
 
     const [isSignup, setIsSignUp] = useState(false)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
+    const navigate = useNavigate()
+    
     function handleChange({ target }) {
         const { name: field, value } = target
         setCredentials(prevCreds => ({ ...prevCreds, [field]: value }))
     }
 
-    function handleSubmit(ev) {
+
+    function isLogin(ev) {
         ev.preventDefault()
-        onLogin(credentials)
+        isSignup ? onSignup(credentials) : onLogin(credentials)
     }
 
     function onLogin(credentials) {
-        isSignup ? signup(credentials) : login(credentials)
-    }
-
-    function login(credentials) {
-        userService.login(credentials)
-            .then(onSetUser)
-            .then(() => { console.log('Logged in successfully') })
-            .catch((err) => { console.log('Oops try again') })
-    }
-
-    function signup(credentials) {
-        userService.signup(credentials)
-            .then(user => {
-
-                onSetUser(user)
+        login(credentials)
+            .then(() => {
+                navigate('/')
+                console.log('Logged in successfully')
             })
-            .then(() => { console.log('Signed in successfully') })
-            .catch((err) => { console.log('Oops try again') })
+            .catch((err) => { console.log(err) })
+
+    }
+
+    function onSignup(credentials) {
+        signup(credentials)
+            .then(() => {
+                console.log('Signed in successfully')
+            })
+            .catch((err) => { console.log(err) })
     }
 
     return (
 
         <div className="login-page">
 
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={isLogin}>
                 <input
                     type="text"
                     name="username"

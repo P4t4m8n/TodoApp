@@ -1,4 +1,5 @@
-import { todoService } from "../services/todo.service.js"
+// import { todoService } from "../services/todo.service.js"
+import { loadTodo } from "../store/actions/todo.actions.js"
 
 const { useParams, useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
@@ -10,9 +11,11 @@ export function TodoDetails() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        todoService.get(params.todoId, params.userId)
-            .then(todo =>
-                setTodo(todo))
+        loadTodo(params.todoId)
+            .then(todo => {
+                console.log("todo:", todo)
+                setTodo(todo)
+            })
             .catch(err => {
                 console.log('err:', err)
                 navigate('/todo/' + params.userId)
@@ -23,14 +26,13 @@ export function TodoDetails() {
 
     function onBack() {
         navigate('/todo/' + params.userId)
-
     }
 
 
     return (
         <section className="todo-details">
             <header>{todo.txt}</header>
-          
+
             <button onClick={onBack}>Back</button>
         </section>
     )

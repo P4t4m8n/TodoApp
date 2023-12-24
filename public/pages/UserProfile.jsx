@@ -1,5 +1,5 @@
 import { userService } from "../services/user.service.js"
-import { EDIT_USER } from "../store/store.js"
+import { update } from "../store/actions/user.actions.js"
 
 const { useSelector, useDispatch } = ReactRedux
 const { useParams, useNavigate } = ReactRouterDOM
@@ -8,10 +8,9 @@ const { useState } = React
 
 export function UserProfile() {
 
-    const user = useSelector(storeState => storeState.userObj)
+    const user = useSelector(storeState => storeState.userMoudle.userObj)
     const [infoToChange, setInfoToChange] = useState({ ...user })
     const navigate = useNavigate()
-    const dispatch = useDispatch()
 
     function handleChange({ target }) {
         const { name: field, value } = target
@@ -23,20 +22,17 @@ export function UserProfile() {
     function handleSubmit(ev) {
         ev.preventDefault()
         const userToSave = { ...user, ...infoToChange }
-        console.log("userToSave:", userToSave)
-
-        userService.update(userToSave)
+        update(userToSave)
             .then((user) => {
-                console.log("user:", user)
-                userService.addActivity('user updated his username from: ' + infoToChange.username + 'too: ' + user.username)
-                dispatch({ type: EDIT_USER, user })
                 navigate('/todo/' + user._id)
-
             })
+            .catch((err) => console.log('err: ', err))
     }
-    const { username, activites } = infoToChange
+
+    const { activites } = infoToChange
+
     const activityTimes = userService.getActivityTimes(activites)
-    console.log("activityTimes:", activityTimes)
+
     return (
         <section className="user-profile">
             <form className="user-edit" onSubmit={handleSubmit}>
@@ -49,8 +45,8 @@ export function UserProfile() {
                     required
                     autoFocus
                 />
-                <input type="color" name="background-color" value="#e66465" />
-                <input type="color" name="color" value="#e66465" />
+                {/* <input type="color" name="background-color" value="#e66465" />
+                <input type="color" name="color" value="#e66465" /> */}
                 <button>Save</button>
             </form>
             <ul className="user-activities">

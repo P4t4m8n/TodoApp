@@ -1,265 +1,236 @@
 [
   {
-    "username": "Admin1",
-    "password": "Admin1",
-    "fullname": "Admin1",
-    "activites": [
-      "1",
-      "2"
-    ],
-    "todosComplete": 1
-  },
-  {
     "_id": "Admin",
     "username": "Admin",
     "password": "Admin",
     "fullname": "Admin",
     "activites": [
-      "a",
-      "b",
       {
-        "txt": "Logged in",
-        "at": 1703345683363
+        "txt": "SignedUp ",
+        "at": 1703445994124
       },
       {
-        "txt": "removed todo id: 13",
-        "at": 1703345825651
+        "txt": "Logout",
+        "at": 1703446168225
       },
       {
-        "txt": "removed todo id: 13",
-        "at": 1703345937171
+        "txt": "Login ",
+        "at": 1703447600623
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346694613
+        "txt": "Logout",
+        "at": 1703447803696
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346695712
+        "txt": "Login ",
+        "at": 1703447833681
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "DYNdi",
+    "username": "a",
+    "password": "a",
+    "fullname": "a",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446364110
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346696313
+        "txt": "Logout",
+        "at": 1703446383702
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "EKHEa",
+    "username": "q",
+    "password": "q",
+    "fullname": "q",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446389040
       },
       {
-        "txt": "add todo",
-        "at": 1703346697236
+        "txt": "Logout",
+        "at": 1703446394717
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346813401
+        "txt": "Login ",
+        "at": 1703446397616
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346814606
+        "txt": "Logout",
+        "at": 1703446638806
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "8bxA4",
+    "username": "j",
+    "password": "j",
+    "fullname": "j",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446643413
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346815306
+        "txt": "Logout",
+        "at": 1703446703253
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "lkWIt",
+    "username": "n",
+    "password": "n",
+    "fullname": "n",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446709883
       },
       {
-        "txt": "add todo",
-        "at": 1703346815966
+        "txt": "Logout",
+        "at": 1703446739232
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "cwCWO",
+    "username": "ff",
+    "password": "ff",
+    "fullname": "ff",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446743728
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346834519
+        "txt": "Logout",
+        "at": 1703446779396
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "xcDV3",
+    "username": "fd",
+    "password": "fdd",
+    "fullname": "fd",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446783246
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346835314
+        "txt": "Logout",
+        "at": 1703446853001
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "UFa8B",
+    "username": "asa",
+    "password": "as",
+    "fullname": "sa",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446858150
       },
       {
-        "txt": "add inner line in todo id: undefined",
-        "at": 1703346835957
+        "txt": "Logout",
+        "at": 1703446886124
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "IbBBu",
+    "username": "fdsfds",
+    "password": "dfd",
+    "fullname": "dsfds",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446890035
       },
       {
-        "txt": "add todo",
-        "at": 1703346836771
+        "txt": "Logout",
+        "at": 1703446938944
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "WgNiy",
+    "username": "dsad",
+    "password": "dasda",
+    "fullname": "dsa",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446944487
       },
       {
-        "txt": "Logged out",
-        "at": 1703348362610
+        "txt": "Logout",
+        "at": 1703446976883
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "873MH",
+    "username": "asda",
+    "password": "dsad",
+    "fullname": "sad",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446981569
       },
       {
-        "txt": "Logged in",
-        "at": 1703348362686
+        "txt": "Logout",
+        "at": 1703446994858
+      }
+    ],
+    "todosComplete": 0
+  },
+  {
+    "_id": "JXWAn",
+    "username": "bobo",
+    "password": "dsa",
+    "fullname": "dasda",
+    "activites": [
+      {
+        "txt": "SignedUp",
+        "at": 1703446998558
       },
       {
-        "txt": "Logged out",
-        "at": 1703348413093
+        "txt": "Update User ",
+        "at": 1703447443806
       },
       {
-        "txt": "Logged in",
-        "at": 1703348413100
+        "txt": "Update User ",
+        "at": 1703447460453
       },
       {
-        "txt": "Logged out",
-        "at": 1703348418114
+        "txt": "Update User ",
+        "at": 1703447497879
       },
       {
-        "txt": "Logged in",
-        "at": 1703348418124
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703348446928
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703348446987
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703348581701
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703348591220
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703348650047
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703348676531
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703348681908
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703348728764
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703348865535
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703352989218
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703426939475
-      },
-      {
-        "txt": "removed todo id: 4",
-        "at": 1703426946852
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703427797329
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703427889876
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703427896927
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428196105
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428198812
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428207326
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428210970
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428365178
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428367335
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428391556
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428401188
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428407162
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428413866
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428447266
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428448698
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428455721
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428458358
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428471739
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428477323
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428542781
-      },
-      {
-        "txt": "Logged out",
-        "at": 1703428545270
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428608689
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428640004
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428655717
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703428899718
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703429356607
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703429571896
-      },
-      {
-        "txt": "Logged in",
-        "at": 1703429918832
+        "txt": "Logout",
+        "at": 1703447593393
       }
     ],
     "todosComplete": 0

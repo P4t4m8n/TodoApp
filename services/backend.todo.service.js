@@ -14,30 +14,36 @@ const gTodos = backendUtilService.readJsonFile('data/todo.json')
 // const PAGE_SIZE = 10
 
 function query(filterAndSort) {
-    const { title, sort, list, userId } = filterAndSort
-    var todos = gTodos
-    todos = todos.filter(todo => todo.owner === userId)
-    // console.log("todos:", todos)
 
-    if (title) {
-        const regex = new RegExp(title, 'i')
+    const { txt, sort, list, userId } = filterAndSort
+    console.log("userId:", userId)
+
+    var todos = gTodos
+    
+    todos = todos.filter(todo => todo.owner === userId)
+    
+    console.log("todos:", todos)
+    if (txt) {
+        const regex = new RegExp(txt, 'i')
         todos = todos.filter(todo => regex.test(todo.txt))
     }
 
     if (list === 'active') {
         todos = todos.filter(todo => todo.isActive)
     }
-
+    
     if (list === 'done') {
         todos = todos.filter(todo => todo.isDone)
     }
-
+    
     if (sort === 'length') {
         todos.sort((todoA, todoB) => todoA.todosList.length - todoB.todosList.length)
     }
 
     else {
-        todos.sort((todoA, todoB) => todoA.txt.localeCompare(todoB.txt))
+        todos.sort((todoA, todoB) => {
+            return todoA.txt.localeCompare(todoB.txt)
+        })
     }
 
     return Promise.resolve(todos)
