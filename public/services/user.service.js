@@ -53,7 +53,7 @@ function update(credentials) {
 
 function logout() {
     sessionStorage.removeItem(STORAGE_KEY)
-    return axios.post('api/logout')
+    return axios.post('/api/logout')
 }
 
 function remove(userId) {

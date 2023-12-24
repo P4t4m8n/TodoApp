@@ -49,6 +49,8 @@ export function UserProfile() {
                     required
                     autoFocus
                 />
+                <input type="color" name="background-color" value="#e66465" />
+                <input type="color" name="color" value="#e66465" />
                 <button>Save</button>
             </form>
             <ul className="user-activities">

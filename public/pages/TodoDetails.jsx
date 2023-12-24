@@ -29,15 +29,8 @@ export function TodoDetails() {
 
     return (
         <section className="todo-details">
-            <header>{todo.title}</header>
-            <ul className="todos-details-list">
-                {
-                    todo.todosList.map((todoList, idx) =>
-                        <li className="todo-details-list" key={idx}>
-                            {todoList}
-                        </li>)
-                }
-            </ul>
+            <header>{todo.txt}</header>
+          
             <button onClick={onBack}>Back</button>
         </section>
     )

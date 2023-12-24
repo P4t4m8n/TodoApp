@@ -15,6 +15,16 @@ export const EDIT_USER = 'EDIT_USER'
 
 export const FILTER = 'FILTER'
 
+const rootReducer = combineRecucers({
+    todoMoudle: todoReducer,
+    userMoudle: userReducer,
+})
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export const store = createStore(rootReducer, composeEnhancers())
+
+window.gStore = store
 
 const initialState = {
     todos: [],
@@ -69,6 +79,4 @@ function todoReducer(state = initialState, action = {}) {
     }
 }
 
-export const store = createStore(todoReducer)
 
-// window.gStore=store

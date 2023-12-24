@@ -54,8 +54,7 @@ function save(todo,userId) {
 function getEmptytodo() {
     return {
         id: '',
-        title: '',
-        todosList: [],
+        txt: '',
         isActive: true,
         isDone: false,
         owner: '',

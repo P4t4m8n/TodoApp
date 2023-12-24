@@ -21,13 +21,6 @@
     "owner": "Admin"
   },
   {
-    "_id": "4",
-    "txt": "Cook a healthy meal",
-    "isActive": true,
-    "isDone": false,
-    "owner": "Admin"
-  },
-  {
     "_id": "5",
     "txt": "Learn a new language",
     "isActive": true,

@@ -221,6 +221,12 @@ app.post('/api/login', (req, res) => {
         .catch((err) => res.status(401).send(err))
 })
 
+// app.post('/todo/api/logout', (req, res) => {
+//     console.log('logout')
+//     res.clearCookie('loginToken')
+//     res.send('Logged out')
+// }
+// )
 app.post('/api/logout', (req, res) => {
     console.log('logout')
     res.clearCookie('loginToken')

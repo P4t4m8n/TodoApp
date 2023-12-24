@@ -27,15 +27,8 @@ export function TodoEdit() {
     }, [])
 
     function handleChange({ target }) {
-        let field = target.name
         let value = target.value
-
-        if (field === 'title') {
-            setTodoToEdit((prevTodo) => ({ ...prevTodo, title: value }))
-        }
-        else {
-            setTodoToEdit((prevTodo) => ({ ...prevTodo, todosList: todosList.toSpliced(field, 1, value) }))
-        }
+        setTodoToEdit(value)
 
     }
 
@@ -49,6 +42,7 @@ export function TodoEdit() {
     }
 
     function onSaveTodo(ev) {
+        console.log('hi')
         ev.preventDefault()
         const type = (todoToEdit._id) ? EDIT_TODO : ADD_TODO
         const activity = (type === EDIT_TODO) ? 'edit todo id: ' + todoToEdit._id : 'add todo'
@@ -65,19 +59,19 @@ export function TodoEdit() {
 
     }
 
-    const { title, todosList } = todoToEdit
+    const { txt } = todoToEdit
 
     return (
         <section className="edit-todo">
 
             <form >
-                <label htmlFor="title">Todo Title: </label>
-                <input value={title} onChange={handleChange} type="text" id="title" name="title"></input>
-            </form><div className="edit-todo-btns">
-                <button onSubmit={onSaveTodo}>Save</button>
-                <button onClick={addInnerTodo}>Add Todo</button>
-                <button onClick={onSetIsDone}>Mark as done</button>
-                <button onClick={onSetIsActive}>Mark as non Active</button>
+                <label htmlFor="txt">Todo Title: </label>
+                <input value={todoToEdit.txt} onChange={handleChange} id="txt" type="text" name="txt"></input>
+            </form>
+            <div className="edit-todo-btns">
+                <button type="button" onSubmit={onSaveTodo}>Save</button>
+                <button type="button" onClick={onSetIsDone}>Mark as done</button>
+                <button type="button" onClick={onSetIsActive}>Mark as non Active</button>
             </div>
         </section>
     )
